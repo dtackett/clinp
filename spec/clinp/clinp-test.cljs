@@ -10,13 +10,23 @@
               (should-be-nil (clinp/get-key-code :unknowablekey))))
 
 (describe "Key handler execs"
-          (it "Exec on a non register key handler")
-          (it "Exec on a non resitered phase")
-          (it "Exec on a registered key handler and phase"))
+          (it "Exec on a non register key handler"
+              (should-be-nil
+               (clinp/exec-handler! {65 {:down #(-> "test")}} :down 66)))
+          (it "Exec on a non resitered phase"
+              (should-be-nil
+               (clinp/exec-handler! {65 {:down #(-> "test")}} :up 65)))
+          (it "Exec on a registered key handler and phase"
+              (should-not-be-nil
+               (clinp/exec-handler! {65 {:up #(-> "test")}} :up 65))))
 
 (describe "Key down checking"
-          (it "Check that a key not held down doesn't register as held")
-          (it "Check that a key held down does register as held"))
+          (it "Check that a key not held down doesn't register as held"
+              (should-not (clinp/keydown? :a)))
+          (it "Check that a key held down does register as held"
+              (with-redefs
+                [clinp/downkeys (atom #{65})]
+                (should (clinp/keydown? :A)))))
 
 (describe "System setup/teardown"
           (it "Check setup")
