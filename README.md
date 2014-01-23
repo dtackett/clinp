@@ -57,6 +57,8 @@ This will setup the 'my-key-up-handler-function; to be invoked when the Z key is
                    (my-key-up-handler-function))
 ```
 
+Only one function per key/phase is allowed. If a second handler is registered the previous registration will be overwritten.
+
 ##Loop
 In the main loop:
 

@@ -76,10 +76,17 @@
        phase
        f))))
 
-; TODO Implement this function
 (defn unlisten!
   "Remove a callback for a given key and phase."
-  [bind-key phase])
+  [bind-key phase]
+  (let [key-code (get-key-code bind-key)]
+    (swap!
+     listeners
+     assoc
+     key-code
+     (dissoc
+       (get @listeners key-code {})
+       phase))))
 
 (defn pulse!
   ([]
