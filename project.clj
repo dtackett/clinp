@@ -3,12 +3,12 @@
   :url "http://github.com/dtackett/clinp"
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2127"]
-                 [specljs "2.8.0"]]
+                 [org.clojure/clojurescript "0.0-2202"]
+                 [speclj "3.0.2"]]
 
-  :plugins [[lein-cljsbuild "1.0.1"]
-            ;; specljs
-            [specljs "2.8.0"]]
+  :plugins [[lein-cljsbuild "1.0.3"]
+            ;; speclj
+            [speclj "3.0.2"]]
 
   :source-paths ["src"]
 

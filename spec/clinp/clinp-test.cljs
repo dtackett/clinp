@@ -1,7 +1,7 @@
 (ns clinp.test
   (:require [clinp.core :as clinp]
-            [specljs.core])
-  (:require-macros [specljs.core :refer [describe it should should-not should= should-be-nil should-not-be-nil]]))
+            [speclj.core])
+  (:require-macros [speclj.core :refer [describe it should should-not should= should-be-nil should-not-be-nil]]))
 
 (describe "Key code lookups"
           (it "Getting known keycode should return an integer value"
